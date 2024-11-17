@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Панель врача</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать, врач!</h1>
+        <h2>Заявки пациентов</h2>
+        <table>
+            <tr>
+                <th>Имя пациента</th>
+                <th>Возраст</th>
+                <th>Пол</th>
+                <th>Самочувствие</th>
+                <th>Симптомы</th>
+                <th>Уровень срочности</th>
+                <th>Файл</th>
+                <th>Действия</th>
+            </tr>
+            {% for request in requests %}
+            <tr>
+                <td>{{ request[1] }}</td>
+                <td>{{ request[2] }}</td>
+                <td>{{ request[3] }}</td>
+                <td>{{ request[4] }}</td>
+                <td>{{ request[6] }}</td>
+                <td>{{ request[20] }}</td>
+                <td>
+                    {% if request[21] %}
+                    <a href="{{ url_for('uploaded_file', filename=request[21]) }}">Скачать файл</a>
+                    {% else %}
+                    Нет файла
+                    {% endif %}
+                </td>
+                <td>
+                    <form action="{{ url_for('respond_to_request', request_id=request[0]) }}" method="post">
+                        <textarea name="treatment_plan" placeholder="План лечения"></textarea>
+                        <button type="submit">Ответить</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('patient_overview') }}">Обзор пациентов</a>
+        <a class="logout-button" href="{{ url_for('logout') }}">Выйти</a>
+    </div>
+</body>
+</html>

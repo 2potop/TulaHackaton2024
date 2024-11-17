@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Выбор роли</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Выберите вашу роль:</h1>
+    <form action="/choose_role" method="post">
+        <label><input type="radio" name="role" value="doctor"> Врач</label><br>
+        <label><input type="radio" name="role" value="patient"> Пациент</label><br>
+        <button type="submit">Выбрать</button>
+    </form>
+</body>
+</html>

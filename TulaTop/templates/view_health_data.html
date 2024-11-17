@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Данные о здоровье</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Данные о здоровье пациентов</h1>
+        <table>
+            <tr>
+                <th>Имя пациента</th>
+                <th>Артериальное давление</th>
+                <th>Частота сердечных сокращений</th>
+            </tr>
+            {% for data in health_data %}
+            <tr>
+                <td>{{ data[0] }}</td>
+                <td>{{ data[1] }}</td>
+                <td>{{ data[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('dashboard') }}">Вернуться на панель</a>
+    </div>
+</body>
+</html>

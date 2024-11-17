@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заявка по болезни</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Мини-тест для оценки самочувствия</h1>
+        <form action="/submit_health_request" method="post" enctype="multipart/form-data">
+            <h2>Личные данные:</h2>
+            <label for="age">Возраст (в годах):</label>
+            <input type="number" id="age" name="age" required><br>
+            
+            <label for="gender">Пол:</label>
+            <select id="gender" name="gender" required>
+                <option value="мужской">Мужской</option>
+                <option value="женский">Женский</option>
+            </select><br>
+
+            <h2>Самочувствие:</h2>
+            <label for="general_feeling">Общее самочувствие:</label>
+            <input type="text" id="general_feeling" name="general_feeling" required><br>
+
+            <label for="symptom_start_date">Когда начались симптомы:</label>
+            <input type="date" id="symptom_start_date" name="symptom_start_date" required><br>
+
+            <label for="symptoms">Опишите ваши симптомы:</label>
+            <textarea id="symptoms" name="symptoms" required></textarea><br>
+
+            <label for="fever">Есть ли у вас лихорадка:</label>
+            <select id="fever" name="fever" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="cough">Есть ли у вас кашель:</label>
+            <select id="cough" name="cough" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="sore_throat">Боль в горле:</label>
+            <select id="sore_throat" name="sore_throat" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="breathing_difficulty">Затруднения с дыханием:</label>
+            <select id="breathing_difficulty" name="breathing_difficulty" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="muscle_joint_pain">Боли в мышцах или суставах:</label>
+            <select id="muscle_joint_pain" name="muscle_joint_pain" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="weakness">Слабость или утомляемость:</label>
+            <select id="weakness" name="weakness" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="digestive_disorders">Расстройства пищеварения:</label>
+            <select id="digestive_disorders" name="digestive_disorders" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="headache">Головные боли:</label>
+            <select id="headache" name="headache" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="skin_rash">Высыпания на коже:</label>
+            <select id="skin_rash" name="skin_rash" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="contact_with_sick">Контакт с больными:</label>
+            <select id="contact_with_sick" name="contact_with_sick" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="medication">Принимаете ли вы лекарства:</label>
+            <select id="medication" name="medication" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="allergies">Есть ли у вас аллергии:</label>
+            <select id="allergies" name="allergies" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="chronic_diseases">Хронические заболевания:</label>
+            <select id="chronic_diseases" name="chronic_diseases" required>
+                <option value="да">Да</option>
+                <option value="нет">Нет</option>
+            </select><br>
+
+            <label for="additional_info">Дополнительные вопросы:</label>
+            <textarea id="additional_info" name="additional_info"></textarea><br>
+
+            <label for="file">Приложите файл или изображение:</label>
+            <input type="file" name="file" id="file"><br>
+
+            <button type="submit">Отправить заявку</button>
+        </form>
+    </div>
+</body>
+</html>

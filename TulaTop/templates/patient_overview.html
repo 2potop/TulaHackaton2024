@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Обзор пациентов</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Обзор пациентов</h1>
+        <table>
+            <tr>
+                <th>Имя пациента</th>
+                <th>Артериальное давление</th>
+                <th>Частота сердечных сокращений</th>
+                <th>График приема лекарств</th>
+                <th>Рекомендации врача</th>
+            </tr>
+            {% for data in patient_health_data %}
+            <tr>
+                <td>{{ data[0] }}</td>
+                <td>{{ data[1] }}</td>
+                <td>{{ data[2] }}</td>
+                <td>{{ data[3] }}</td>
+                <td>{{ data[4] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a class="logout-button" href="{{ url_for('logout') }}">Выйти</a>
+    </div>
+</body>
+</html>
